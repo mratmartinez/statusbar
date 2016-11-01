@@ -1,0 +1,40 @@
+#!/bin/dash
+
+wifi(){
+test "`nmcli --terse --fields STATE general status`" = "disconnected" && echo -n "----" || \
+nmcli --terse --fields IN-USE,SSID dev wifi | grep "*" | awk '{split($0,a,":") ; print a[2]}'
+}
+
+workspace() {
+	xdotool get_desktop
+}
+
+battery() {
+	BATC=/sys/class/power_supply/BAT1/capacity
+	BATS=/sys/class/power_supply/BAT1/status
+	test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+	sed -n p $BATC
+}
+
+clock() {
+	#HOUR=$(date '+%T') # HH:MM:SS
+	HOUR=$(date '+%H:%M')
+	echo $HOUR
+}
+
+memused() {
+	free -mhw | grep -E Mem: | awk '{print $3,"/",$2}'
+}
+
+while :; do
+    buf=""
+    buf="${buf} $(wifi)"
+#    buf="${buf} $(workspace)"
+    buf="${buf} $(memused)"
+    buf="${buf} $(battery)"
+    buf="${buf} $(clock)"
+
+    echo $buf
+    # use `nowplaying scroll` to get a scrolling output!
+    sleep 2 # The HUD will be updated every second
+done
