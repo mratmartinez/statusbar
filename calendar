@@ -1,0 +1,9 @@
+#!/bin/dash
+FG='#aaaaaa'
+BG='#1a1a1a'
+RESW=$xrandr | grep '*' | awk '{gsub (" ", "", $0) ; split($0,a,"x") ; print a[1]}'
+W=200
+X=$(($RESW-$W))
+
+cal -h | dzen2 -p -x $X -y "20" -w $W -l "7"  -ta 'c'  \
+	-title-name 'popup_sysinfo' -e 'onstart=uncollapse;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
