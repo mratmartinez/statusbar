@@ -3,4 +3,4 @@
 FG='#aaaaaa'
 BG='#1a1a1a'
 
-conky -c barconky | dzen2 -e - -h '16'  -ta r -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+conky -c barconky | dzen2 -e - -h '16' -ta r -fg $FG -bg $BG -fn 'LiberationMono-Regular'

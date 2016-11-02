@@ -5,6 +5,9 @@ total_run_times 0
 use_spacer none
  
 TEXT
+^ca(1,./status)\
+^fg()${battery_percent BAT1}\
+^ca()  \
 ^ca(1,./wificonnect)\
 ^fg()${exec ./wifiwrite}\
 ^ca()  \
@@ -15,7 +18,6 @@ TEXT
 ^ca()\
 ^ca()\
 ^ca()  \
-\
 ^ca(1,./calendar)\
 ^fg()${time %I:%M%P}\
 ^ca()
