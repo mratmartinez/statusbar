@@ -1,0 +1,13 @@
+background no
+out_to_console yes
+update_interval 5.0
+total_run_times 0
+use_spacer none
+ 
+TEXT
+System Information
+^fg()Hostname: ${nodename}^fg()
+^fg()Battery: ${battery BAT1}^fg()
+^fg()Kernel: ${kernel}^fg()
+^fg()Tasks: ${processes}^fg()
+^fg()RAM: ${mem}^fg()

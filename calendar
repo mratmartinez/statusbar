@@ -6,4 +6,4 @@ W=200
 X=$(($RESW-$W))
 
 cal -h | dzen2 -p -x $X -y "20" -w $W -l "7"  -ta 'c'  \
-	-title-name 'popup_sysinfo' -e 'onstart=uncollapse;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+	-title-name 'calendar' -e 'onstart=uncollapse;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'

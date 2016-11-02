@@ -9,6 +9,6 @@ NETS=$(nmcli --terse --fields SSID dev wifi | wc -w)
 
 TE=$(
 (echo "Networks" && nmcli --terse --fields SSID dev wifi) | dzen2 -p -x $X -y "20" -w $W -l $NETS  -ta 'c' -m \
-    -title-name 'popup_sysinfo' -e 'onstart=uncollapse;button1=menuprint,exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+    -title-name 'wificonnect' -e 'onstart=uncollapse;button1=menuprint,exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
 )
 nmcli dev wifi connect $TE
