@@ -1,3 +1,5 @@
+#!/usr/bin/conky -c
+
 background no
 out_to_console yes
 update_interval 5.0
