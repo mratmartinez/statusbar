@@ -1,25 +1,5 @@
 #!/bin/dash
 
-# Useful scripts
-
-workspace() {
-	xdotool get_desktop
-}
-battery() {
-	BATC=/sys/class/power_supply/BAT1/capacity
-	BATS=/sys/class/power_supply/BAT1/status
-	test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
-	sed -n p $BATC
-}
-clock() {
-	#HOUR=$(date '+%T') # HH:MM:SS
-	HOUR=$(date '+%H:%M')
-	echo $HOUR
-}
-memused() {
-	free -mhw | grep -E Mem: | awk '{print $3,"/",$2}'
-}
-
 FG='#aaaaaa'
 BG='#1a1a1a'
 
