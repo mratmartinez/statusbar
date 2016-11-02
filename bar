@@ -1,10 +1,7 @@
 #!/bin/dash
 
 # Useful scripts
-wifi(){
-test "`nmcli --terse --fields STATE general status`" = "disconnected" && echo -n "----" || \
-nmcli --terse --fields IN-USE,SSID dev wifi | grep "*" | awk '{split($0,a,":") ; print a[2]}'
-}
+
 workspace() {
 	xdotool get_desktop
 }

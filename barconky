@@ -5,6 +5,9 @@ total_run_times 0
 use_spacer none
  
 TEXT
+^ca(1,./wificonnect)\
+^fg()${exec ./wifiwrite}\
+^ca()  \
 ^ca(3,amixer sset Master 5%- >> /dev/null)\
 ^ca(1,amixer sset Master 5%+ >> /dev/null)\
 ^ca(2,amixer set Master toggle >> /dev/null)\
