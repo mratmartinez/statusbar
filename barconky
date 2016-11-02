@@ -16,7 +16,7 @@ TEXT
 ^ca(3,amixer sset Master 5%- >> /dev/null)\
 ^ca(1,amixer sset Master 5%+ >> /dev/null)\
 ^ca(2,amixer set Master toggle >> /dev/null)\
-^fg(\#ff0000)${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}\
+^fg()${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}\
 ^ca()\
 ^ca()\
 ^ca()  \
