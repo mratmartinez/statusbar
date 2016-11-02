@@ -1,0 +1,12 @@
+#!/bin/dash
+
+FG='#aaaaaa'
+BG='#1a1a1a'
+RESW=$xrandr | grep '*' | awk '{gsub (" ", "", $0) ; split($0,a,"x") ; print a[1]}'
+W=300
+X=$(($RESW-$W))
+MENU_DIR="/usr/share/pmenu"
+MENU_LINE=$(ls $MENU_DIR | wc -w)
+
+(echo Menu && ls $MENU_DIR) | dzen2 -p -x $X -y "20" -w $W -l $MENU_LINE -m -ta 'c'  \
+	-title-name 'menu' -e 'onstart=uncollapse;button1=menuexec,exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'

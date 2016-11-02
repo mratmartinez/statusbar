@@ -1,4 +1,5 @@
 #!/bin/dash
+
 FG='#aaaaaa'
 BG='#1a1a1a'
 RESW=$xrandr | grep '*' | awk '{gsub (" ", "", $0) ; split($0,a,"x") ; print a[1]}'
