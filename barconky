@@ -5,4 +5,14 @@ total_run_times 0
 use_spacer none
  
 TEXT
-^ca(2,amixer set Master toggle)^fg(\#ff0000)${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}^ca() ^ca(1,./calendar)^fg()${time %I:%M%P}^ca()
+^ca(3,amixer sset Master 5%- >> /dev/null)\
+^ca(1,amixer sset Master 5%+ >> /dev/null)\
+^ca(2,amixer set Master toggle >> /dev/null)\
+^fg(\#ff0000)${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}\
+^ca()\
+^ca()\
+^ca()  \
+\
+^ca(1,./calendar)\
+^fg()${time %I:%M%P}\
+^ca()
