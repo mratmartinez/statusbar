@@ -1,0 +1,7 @@
+#!/bin/dash
+
+FOLDER=$HOME/.ulog/$1/$(date +%Y.%m.%d)
+FILENAME=$(date +%H-%M)
+mkdir -p $FOLDER
+
+echo $2 >> $FOLDER/$FILENAME
