@@ -1,0 +1,28 @@
+#!/bin/dash
+FG='#aaaaaa'
+BG='#1a1a1a'
+RESW=$xrandr | grep '*' | awk '{gsub (" ", "", $0) ; split($0,a,"x") ; print a[1]}'
+W=200
+X=$(($RESW-$W))
+FOLDER=$HOME/.ulog
+DATA=$(ls $FOLDER)
+SYSTEMS=$(echo $DATA | wc -w)
+
+TE=$(
+(echo "Notifications" && echo $DATA) | dzen2 -p -x $X -y "20" -w $W -l $SYSTEMS -m -ta 'c'  \
+	-title-name 'messages' -e 'onstart=uncollapse;button1=menuprint,exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+)
+
+FOLDER=$FOLDER/$TE/$(date +%Y.%m.%d)
+DATA=$(ls $FOLDER)
+SYSTEMS=$(echo $DATA | wc -w)
+
+FILENAME=$(
+(echo "Notifications" && echo $DATA) | dzen2 -p -x $X -y "20" -w $W -l $SYSTEMS -m -ta 'c'  \
+	-title-name $TE -e 'onstart=uncollapse;button1=menuprint,exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+)
+
+FILE=$FOLDER/$FILENAME
+(echo $FILENAME | awk '{gsub("-",":"); print $0 }' && cat $FILE) | dzen2 -p -x "200" -y "20" -w "500" -l 3 -ta 'c' \
+	-title-name $FILENAME -e 'onstart=uncollapse;button1=exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+

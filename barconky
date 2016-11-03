@@ -22,6 +22,8 @@ TEXT
 ^ca()\
 ^ca()\
 ^ca()  \
+^ca(3,./messages)\
 ^ca(1,./calendar)\
 ^fg()${time %I:%M%P}\
+^ca()\
 ^ca()
