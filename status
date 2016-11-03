@@ -7,4 +7,4 @@ W=300
 X=$(($RESW-$W))
 
 ./statusconky | dzen2 -p -x $X -y "20" -w $W -l "5"  -ta 'c'  \
-	-title-name 'sysinfo' -e 'onstart=uncollapse;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+	-title-name 'sysinfo' -e 'onstart=uncollapse;button1=exit;button3=exit' -fg $FG -bg $BG -fn 'LiberationMono-Regular'
