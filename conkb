@@ -9,21 +9,21 @@ use_spacer none
 TEXT
 ^ca(3,menu)\
 ^ca(1,status)\
-^fg()${battery_percent BAT1}\
+^fg()[${battery_percent BAT1}]\
 ^ca()\
-^ca()  \
+^ca() \
 ^ca(1,wificonnect)\
-^fg()${exec wifiwrite}\
-^ca()  \
+^fg()[${exec wifiwrite}]\
+^ca() \
 ^ca(3,amixer sset Master 5%- >> /dev/null)\
 ^ca(1,amixer sset Master 5%+ >> /dev/null)\
 ^ca(2,amixer set Master toggle >> /dev/null)\
-^fg()${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}\
+^fg()[${exec amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq}]\
 ^ca()\
 ^ca()\
-^ca()  \
+^ca() \
 ^ca(3,messages)\
 ^ca(1,calendar)\
-^fg()${time %I:%M%P}\
+^fg()[${time %I:%M%P}]\
 ^ca()\
 ^ca()
