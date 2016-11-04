@@ -3,4 +3,4 @@
 FG='#aaaaaa'
 BG='#1a1a1a'
 
-./barconky | dzen2 -dock -e 'onstart=lower' -h '16' -ta r -fg $FG -bg $BG -fn 'LiberationMono-Regular'
+conkb | dzen2 -dock -e 'onstart=lower' -h '16' -ta r -fg $FG -bg $BG -fn 'LiberationMono-Regular'
